@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">4
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+    <title> Blood Bank Management</title>
+</head>
+
+<body>
+    <section>>
+        <div class="bs">
+            <nav style="background-color: #FF0018;" class="navbar navbar-expand-md navbar-dark fixed-top">
+                <image src="/static/Blood.PNG" fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-10 h-10 text-white p-1 bg-white rounded-full" viewBox="0 0 24 24">
+                    </svg>
+                    <a href="/" class="navbar-brand">&nbsp;&nbsp;Blood Bank Management</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+
+                        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" style="color: white;" href=""><i class="fas fa-home"></i>&nbsp; Home</i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="color: white;" href="../patient"><i class="fas fa-procedures"></i>&nbsp; Patient</i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" style="color: white;" href="../admin"><i class="fas fa-user-shield"></i>&nbsp; Admin</i></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+            </nav>
+        </div>
+    </section>
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="h1_bg">PATIENT LOGIN</h1>
+            </div>
+            <form class="main_form" method="post" action="/donor">
+                {% csrf_token %}
+                <div class="box lg:w-1/2 md:w-2/3 mx-auto">
+                    <div class="flex flex-wrap -m-2">
+
+                        <div class="p-2 w-full">
+                            <div class="box">
+                                <div class="relative">
+                                    <label for="name" class="leading-7 text-sm text-gray-600">USERNAME</label>
+                                    <input type="text" id="name" name="USERNAME" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                </div>
+
+                                <div class="p-2 w-full">
+                                    <div class="relative">
+                                        <label for="email" class="leading-7 text-sm text-gray-600">PASSWORD</label>
+                                        <input type="password" id="email" name="PASSWORD" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+
+                                </div>
+                                <center>
+                                    <button onclick="window.location.href='patientdetails.html'" class="flex-row mt-16 text-white bg-red-500 border-0 py-2 px-3 focus:outline-none hover:bg-green-600 rounded text-lg">LOGIN</button>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+    </section>
+    <style>
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #FF0018;
+            color: white;
+            text-align: center;
+            height: 50px;
+        }
+        
+        .h1_bg {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            opacity: 0.8;
+        }
+        
+        .box {
+            border: 4px solid gray;
+            padding: 2px;
+            margin: 0px;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="footer">
+            <p> Made By Arnav Mukkawar <br>&copy; 2021
+            </p>
+
+        </div>
+    </body>
+
+</html>

@@ -77,7 +77,7 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-
+@login_required(login_url='login')
 def registerpage(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -94,6 +94,7 @@ def registerpage(request):
         context = {'form':form}
         return render(request, 'register.html',context)
 
+@login_required(login_url='login')
 def prequested(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -105,6 +106,7 @@ def prequested(request):
         return redirect('home')
     return render(request, 'prequested.html')
 
+@login_required(login_url='login')
 def ddonated(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -115,3 +117,21 @@ def ddonated(request):
         ddonated.save()  
         return redirect('home')  
     return render(request, 'ddonated.html')
+
+@login_required(login_url='login')
+def result(request):
+    if request.method == "POST":
+        address = request.POST.get('Address')
+        bloodgroup = request.POST.get('Bloodgroup')
+        if(address and bloodgroup=='Choose...'):
+            data = Donor.objects.filter( Address=address).values()
+        elif(bloodgroup!='Choose...' and not address):
+            data = Donor.objects.filter( Bloodgroup=bloodgroup ).values()
+        elif(not address and bloodgroup=='Choose...'):
+            data = Donor.objects.all()
+        else:
+            data = Donor.objects.filter(Bloodgroup=bloodgroup , Address=address).values()
+        if(data.count()==0):
+            messages.success(request, 'NO RECORDS FOUND !')
+        return render(request,"results.html", {'data': data})
+    return render(request,"results.html")

@@ -103,7 +103,40 @@
                 </div>
 
                 <img class="photo" alt="..." src="/static/Capture.jpg" width="400" height="400">
-
+                <br>
+                <br>
+                <div class="p-2 w-full">
+                    <button class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">LOOKING FOR DONOR NEAR YOU  &nbsp;<strong>&#x2192;</strong></button>
+                    <br>
+                    <form class="main_form" method="post" action="/result">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="Address" name="Address" placeholder="plot no./flat no./street/area">
+                            </div>
+                            <div class="col">
+                                <label for="inputState" class="form-label">Blood Group</label>
+                                <select id="Bloodgroup" name="Bloodgroup" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>O+</option>
+                                    <option>O-</option>
+                                    <option>A+</option>
+                                    <option>A-</option>
+                                    <option>B+</option>
+                                    <option>B-</option>
+                                    <option>AB+</option>
+                                    <option>AB-</option>
+                                </select>
+                            </div>
+                            <div class="col" style="text-align: center;">
+                                <br>
+                                <p></p>
+                                <button onClick="window.location.href='./result';" class="flex mx-auto text-white bg-black border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
 
